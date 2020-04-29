@@ -4,8 +4,7 @@
 
 void remov(char *src, char *dest, int iter);
 
-int main()
-{
+int main(){
    char src[100];
    char dest[100];
 
@@ -22,19 +21,17 @@ int main()
 }
 
 
-
 void remove_Dups_recursively(char *src, char *dest, int iter){
    // base case 1
    if(strlen(src) <= 1){
       dest = src;
       return;
    }
-   
    // base case 2
    if(iter == strlen(src)){
       return;
    }
-
+   
    // current 'iter' element has been encountered before
    if(strchr(dest, src[iter]) == NULL){
        dest[strlen(dest)] = src[iter]; 
@@ -46,7 +43,4 @@ void remove_Dups_recursively(char *src, char *dest, int iter){
       iter++;
       remov(src, dest, iter);
    }
-   
 }
-
-
