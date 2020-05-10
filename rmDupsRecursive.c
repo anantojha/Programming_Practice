@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-void remov(char *src, char *dest, int iter);
+void remove_Dups_recursively(char *src, char *dest, int iter);
 
 int main(){
    char src[100];
@@ -12,7 +12,7 @@ int main(){
    // EXAMPLE:   AAABBABCCABA
    scanf("%s",src);
 
-   remov(src, dest, 0);
+   remove_Dups_recursively(src, dest, 0);
    
    // OUTPUT:    ABC
    printf("%s\n", dest);
@@ -36,11 +36,11 @@ void remove_Dups_recursively(char *src, char *dest, int iter){
    if(strchr(dest, src[iter]) == NULL){
        dest[strlen(dest)] = src[iter]; 
        iter++;
-       remov(src, dest, iter);
+       remove_Dups_recursively(src, dest, iter);
    }
    // current 'iter' element has not been encountered before
    else{
       iter++;
-      remov(src, dest, iter);
+      remove_Dups_recursively(src, dest, iter);
    }
 }
