@@ -9,18 +9,26 @@ int main(){
    char dest[100];
 
    // enter input string from which to remove duplicates
-   // EXAMPLE:   AAABBABCCABA
-   scanf("%s",src);
+   scanf("%s",src);  // EXAMPLE:   AAABBABCCABA
 
+   // remove deplicates (0 -> removes from entire string)
    remove_Dups_recursively(src, dest, 0);
    
-   // OUTPUT:    ABC
-   printf("%s\n", dest);
+   // print results 
+   printf("%s\n", dest);  // OUTPUT:    ABC
 
    return 0;
 }
 
 
+/* @params:
+ * src  -- input string pointer. String to remove dups from.
+ * dest -- output string pointer. Passed in as empty string.  
+ * iter -- index from where duplicate removal starts. (0)
+ * ---------------------------------------------------------
+ * Purpose:  
+ * Removes duplicate characters from a string recursively. 
+*/
 void remove_Dups_recursively(char *src, char *dest, int iter){
    // base case 1
    if(strlen(src) <= 1){
@@ -31,7 +39,6 @@ void remove_Dups_recursively(char *src, char *dest, int iter){
    if(iter == strlen(src)){
       return;
    }
-   
    // current 'iter' element has been encountered before
    if(strchr(dest, src[iter]) == NULL){
        dest[strlen(dest)] = src[iter]; 
